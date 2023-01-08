@@ -1,0 +1,128 @@
+<html>
+
+<head>
+
+<body>
+    <div id="op"></div>
+
+    <script>
+        var people = [
+            {
+                "firstname": "praveen",
+                "lastname": "gubbala",
+                "age": 36,
+                "gender": "male",
+                "city": "hyd",
+                "salary": 10000
+            },
+            {
+                "firstname": "srikanth",
+                "lastname": "gubbala",
+                "age": 32,
+                "gender": "male",
+                "city": "bengaluru",
+                "salary": 20000
+            },
+            {
+                "firstname": "pradeep",
+                "lastname": "reddy",
+                "age": 21,
+                "gender": "male",
+                "city": "hyd",
+                "salary": 25000
+            },
+            {
+                "firstname": "mounika",
+                "lastname": "mudiraj",
+                "age": 20,
+                "gender": "female",
+                "city": "nalgonda",
+                "salary": 30000
+            },
+            {
+                "firstname": "nikhil",
+                "lastname": "m",
+                "age": 22,
+                "gender": "male",
+                "city": "guntur",
+                "salary": 2000
+            },
+            {
+                "firstname": "riya",
+                "lastname": "bhadouria",
+                "age": 14,
+                "gender": "female",
+                "city": "indore",
+                "salary": 40000
+            }
+        ];
+
+        var table = document.createElement('table');
+        var tro = document.createElement('tr');
+        // table style="border:1px solid black;margin-left:auto;margin-right:auto;"
+
+
+        table.style.backgroundColor = 'lightblack';
+        table.style.border = '5px solid lightgreen';
+        table.setAttribute("border", 100);
+        table.setAttribute("margin",22)
+        var maind = document.getElementById('op')
+
+        var th1=document.createElement('th');
+        var th2=document.createElement('th');
+        var th3=document.createElement('th');
+        var th4=document.createElement('th');
+        var th5=document.createElement('th');
+        var th6=document.createElement('th');
+        
+        th1.innerHTML='FisrtName '
+        th2.innerHTML="lastName "
+        th3.innerHTML='age '
+        th4.innerHTML="gender"
+        th5.innerHTML='city'
+        th6.innerHTML='salary '
+
+        tro.appendChild(th1)
+        tro.appendChild(th2)
+        tro.appendChild(th3)
+        tro.appendChild(th4)
+        tro.appendChild(th5)
+        tro.appendChild(th6)
+
+        table.appendChild(tro)
+        maind.appendChild(table)
+
+        people.forEach(function(a){
+            var pr=document.createElement('tr');
+
+            var pd1=document.createElement('td')
+            var pd2=document.createElement('td')
+            var pd3=document.createElement('td')
+            var pd4=document.createElement('td');
+            var pd5=document.createElement('td')
+            var pd6=document.createElement('td')
+
+            pd1.innerHTML=a.firstname
+            pd2.innerHTML=a.lastname
+            pd3.innerHTML=a.age
+            pd4.innerHTML=a.gender
+            pd5.innerHTML=a.city
+            pd6.innerHTML=a.salary
+
+            pr.appendChild(pd1)
+            pr.appendChild(pd2)
+            pr.appendChild(pd3)
+            pr.appendChild(pd4)
+            pr.appendChild(pd5)
+            pr.appendChild(pd6)
+
+            table.appendChild(pr)
+            
+        })
+
+
+    </script>
+</body>
+</head>
+
+</html>

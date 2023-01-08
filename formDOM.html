@@ -1,0 +1,177 @@
+<html>
+
+<head>
+
+<body>
+    <form onsubmit="event.preventDefault()" name='userform'>
+        <label for="">firstname</label>
+        <input type="text" id="fn">
+        <br>
+        <label for="">lastname</label>
+        <input type="text" id="ln">
+        <br>
+        <label for="">DOB</label>
+        <input type="date" name="" id="db">
+        <br>
+        <label for="">Gender</label>
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="male">Female
+        <input type="radio" name="gender" value="other">other
+        <br>
+        <label for="">Languages</label>
+        <input type="checkbox" name='languages' value="english">English
+        <input type="checkbox" name="languages" id="" value="telugu"> Telugu
+        <input type="checkbox" name="languages" value="hindi">Hindi
+        <br>
+        <label for="">Select the course </label>
+        <select name="course" id="">
+            <option value="angular">Angular</option>
+            <option value="react">ReactJS</option>
+        </select>
+        <br>
+        <label for="">Address </label>
+        <textarea name="address" id="" cols="30" rows="10"></textarea>
+        <button type="button" onclick="print()">print</button>
+    </form>
+    <div id="op"></div>
+    <!-- <input type="text" id="pp" onkeyup="print()"> -->
+    <!-- <button onclick="print()">print</button> -->
+    <h1 id="text"></h1>
+    <script>
+        // var j1=document.getElementById('pp')
+        // var text=document.getElementById('text')
+        // function print(){
+        // //    console.log(j1.value)
+        // var j2=j1.value;
+        // text.innerHTML=j2;
+        // }
+
+
+        // var fn=document.getElementById('fn');
+        // var ln =document.getElementById('ln')
+        // function print(){
+        //     console.log(fn.value);
+        //     console.log(ln.value)
+        // }
+
+
+        // var fn=document.getElementById('fn');
+        // var ln =document.getElementById('ln');
+        // var j1=document.getElementById("db")
+        // var g1=document.getElementById('')
+        // var us1 = document.userform;
+        var people = [];
+        
+        var userform = document.userform;
+
+        var table = document.createElement('table');
+
+        function print() {
+            var obj = {
+                'firstname': " ",
+                'lastname': "",
+                'dob': "",
+                'gender': "",
+                'languages': [],
+                'course': "",
+                'address':"",
+            }
+            obj.firstname = userform.fn.value;
+            obj.lastname = userform.ln.value;
+            obj.dob = userform.db.value;
+            obj.gender = userform.gender.value
+            userform.languages.forEach(function (a) {
+                if (a.checked === true) {
+                    obj.languages.push(a.value);
+                }
+            })
+            obj.course= userform.course.value
+            obj.address=userform.address.value
+            // console.log(obj);
+           people.push(obj)
+          
+            userform.reset()
+            ctable(people)
+        }
+
+        function ctable(array) {
+            table.innerHTML='';
+        // var table = document.createElement('table');
+        var tro = document.createElement('tr');
+        // table style="border:1px solid black;margin-left:auto;margin-right:auto;"
+
+
+        table.style.backgroundColor = 'lightyellow';
+        table.style.border = '2px solid lightgreen';
+        table.setAttribute("border", 100);
+        table.setAttribute("margin",22)
+        var maind = document.getElementById('op')
+
+        var th1=document.createElement('th');
+        var th2=document.createElement('th');
+        var th3=document.createElement('th');
+        var th4=document.createElement('th');
+        var th5=document.createElement('th');
+        var th6=document.createElement('th');
+        var th7=document.createElement('th');
+        
+        th1.innerHTML='FisrName '
+        th2.innerHTML="lastName "
+        th3.innerHTML='dob '
+        th4.innerHTML="gender"
+        th5.innerHTML='languages'
+        th6.innerHTML='course '
+        th7.innerHTML='address '
+
+        tro.appendChild(th1)
+        tro.appendChild(th2)
+        tro.appendChild(th3)
+        tro.appendChild(th4)
+        tro.appendChild(th5)
+        tro.appendChild(th6)
+        tro.appendChild(th7)
+
+
+        table.appendChild(tro)
+        maind.appendChild(table)
+
+        people.forEach(function(a){
+            var pr=document.createElement('tr');
+
+            var pd1=document.createElement('td')
+            var pd2=document.createElement('td')
+            var pd3=document.createElement('td')
+            var pd4=document.createElement('td');
+            var pd5=document.createElement('td')
+            var pd6=document.createElement('td')
+            var pd7=document.createElement('td')
+            
+
+
+            pd1.innerHTML=a.firstname
+            pd2.innerHTML=a.lastname
+            pd3.innerHTML=a.dob
+            pd4.innerHTML=a.gender
+            pd5.innerHTML=a.languages
+            pd6.innerHTML=a.course
+            pd7.innerHTML=a.address
+
+
+            pr.appendChild(pd1)
+            pr.appendChild(pd2)
+            pr.appendChild(pd3)
+            pr.appendChild(pd4)
+            pr.appendChild(pd5)
+            pr.appendChild(pd6)
+            pr.appendChild(pd7)
+
+
+            table.appendChild(pr)
+            
+        })
+    }
+    </script>
+</body>
+</head>
+
+</html>

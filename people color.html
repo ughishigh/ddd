@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body >
+    <div  style="border:5px solid lightslategray " >
+        <ul id="pp" type="sqaure"></ul>
+    </div>
+    <script>var people = [
+            {
+                "firstname": "praveen",
+                "lastname": "gubbala",
+                "age": 36,
+                "gender": "male",
+                "city": "hyd",
+                "salary": 10000
+            },
+            {
+                "firstname": "srikanth",
+                "lastname": "gubbala",
+                "age": 32,
+                "gender": "male",
+                "city": "bengaluru",
+                "salary": 20000
+            },
+            {
+                "firstname": "pradeep",
+                "lastname": "reddy",
+                "age": 21,
+                "gender": "male",
+                "city": "hyd",
+                "salary": 25000
+            },
+            {
+                "firstname": "mounika",
+                "lastname": "mudiraj",
+                "age": 20,
+                "gender": "female",
+                "city": "nalgonda",
+                "salary": 30000
+            },
+            {
+                "firstname": "nikhil",
+                "lastname": "m",
+                "age": 22,
+                "gender": "male",
+                "city": "guntur",
+                "salary": 2000
+            },
+            {
+                "firstname": "riya",
+                "lastname": "bhadouria",
+                "age": 14,
+                "gender": "female",
+                "city": "indore",
+                "salary": 40000
+            }
+        ];
+    people.forEach(function(a){
+        var j1=document.createElement('li');
+        j1.innerHTML=a.firstname+ " "+a.lastname;
+        document.getElementById('pp').appendChild(j1);
+        if(a.gender==='male'){
+            j1.style.backgroundColor='lightblue';
+            j1.style.color='green'
+        }
+        else if(a.gender==='female'){
+            j1.style.backgroundColor='pink';
+            j1.style.color='navy'
+        }
+      var dets=document.createElement('ul');
+      var ageli=document.createElement('li');
+      var genderli=document.createElement('li');
+      var cityli=document.createElement('li');
+      var sali=document.createElement('li');
+
+      ageli.innerHTML='age: '+  a.age;
+      genderli.innerHTML='gender :'+  a.gender;
+      cityli.innerHTML="city: "+ a.city;
+      sali.innerHTML='salry: ' +a.salary;
+
+      dets.appendChild(ageli)
+      dets.appendChild(genderli)
+      dets.appendChild(cityli);
+      dets.appendChild(sali)
+
+      var j2=document.getElementById('pp')
+     j2.appendChild(dets)
+    })
+   
+    </script>
+</body>
+
+</html>

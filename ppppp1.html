@@ -1,0 +1,197 @@
+<html>
+
+<head>
+
+<body>
+    <button onclick="asc() " style="margin: right 30px">A-Z </button>
+    <button onclick="dsc() " style="margin: right 130px">Z-A </button>
+    <input type="text" id="sb" onkeyup="search()">
+    <style>
+        #ipp {
+            display: flex;
+            margin-left: px;
+            margin-right: 900px;
+        }
+
+
+        #ipp1 {
+            flex: 20%;
+            padding: 2px;
+        }
+    </style>
+    <div id="ipp">
+        <table border="1.5" id="style" bgcolor="lightgray" >
+            <thead>
+                <tr>
+                    <th> firstname </th>
+                    <th>lastname </th>
+                    <th> age</th>
+                    <th>gender </th>
+                    <th> city </th>
+
+                    <th> salary </th>
+
+                </tr>
+
+
+            </thead>
+            <tbody id="ip1"></tbody>
+    </div>
+    <div class="ipp1">
+        <table border="1.5" bgcolor='lightgreen'>
+            <thead>
+                <tr>
+                    <th> firstname </th>
+                    <th>lastname </th>
+                    <th> age</th>
+                    <th>gender </th>
+                    <th> city </th>
+                    <th> salary </th>
+                </tr>
+            </thead>
+            <tbody id="ip2">
+
+            </tbody>
+    </table>
+</div>
+    <script>
+        var tbody = document.getElementById('ip1')
+        
+        // tbody.style.textAlign = 'center'
+        var tbody1 = document.getElementById('ip2')
+        var people = [
+            {
+                "firstname": "praveen",
+                "lastname": "gubbala",
+                "age": 36,
+                "gender": "male",
+                "city": "hyd",
+                "salary": 10000
+            },
+            {
+                "firstname": "srikanth",
+                "lastname": "gubbala",
+                "age": 32,
+                "gender": "male",
+                "city": "bengaluru",
+                "salary": 20000
+            },
+            {
+                "firstname": "pradeep",
+                "lastname": "reddy",
+                "age": 21,
+                "gender": "male",
+                "city": "hyd",
+                "salary": 25000
+            },
+            {
+                "firstname": "mounika",
+                "lastname": "mudiraj",
+                "age": 20,
+                "gender": "female",
+                "city": "nalgonda",
+                "salary": 30000
+            },
+            {
+                "firstname": "nikhil",
+                "lastname": "m",
+                "age": 22,
+                "gender": "male",
+                "city": "guntur",
+                "salary": 2000
+            },
+            {
+                "firstname": "riya",
+                "lastname": "bhadouria",
+                "age": 14,
+                "gender": "female",
+                "city": "indore",
+                "salary": 40000
+            }
+        ];
+        ctable(people)
+
+        function asc() {
+            people.sort(function (a, b) {
+                var f1 = a.firstname.toLowerCase()
+                var f2 = b.firstname.toLowerCase()
+                if (f1 < f2) {
+                    return -1
+                }
+                if (f1 > f2) {
+                    return 1
+                }
+                return 0;
+
+            })
+            ctable(people)
+        }
+        function dsc() {
+            people.sort(function (a, b) {
+                var f1 = a.firstname.toLowerCase()
+                var f2 = b.firstname.toLowerCase()
+                if (f1 < f2) {
+                    return 1
+                }
+                if (f1 > f2) {
+                    return -1
+                }
+                return 0;
+
+            })
+            ctable(people)
+        }
+        function search() {
+            var fil = people.filter(function (a) {
+                return (a.firstname.toLowerCase().startsWith(sb.value.toLowerCase()))
+            })
+            ctable(fil);
+        }
+
+        function ctable(arr) {
+            tbody.innerHTML = ""
+            arr.forEach(function (a) {
+                if (a.gender === 'male') {
+                    var pr = document.createElement('tr');
+                    var pd1 = document.createElement('td')
+                    pd1.innerHTML = a.firstname
+
+                    var pd2 = document.createElement('td')
+                    pd2.innerHTML = a.lastname
+
+                    var pd3 = document.createElement('td')
+                    pd3.innerHTML = a.age
+
+                    var pd4 = document.createElement('td');
+                    pd4.innerHTML = a.gender
+
+                    var pd5 = document.createElement('td')
+                    pd5.innerHTML = a.city
+
+                    var pd6 = document.createElement('td')
+                    pd6.innerHTML = a.salary
+
+                    pr.appendChild(pd1)
+                    pr.appendChild(pd2)
+                    pr.appendChild(pd3)
+                    pr.appendChild(pd4)
+                    pr.appendChild(pd5)
+                    pr.appendChild(pd6)
+                    tbody.appendChild(pr)
+                }
+        })
+
+      
+        }
+        
+    
+
+
+
+
+
+    </script>
+</body>
+</head>
+
+</html>

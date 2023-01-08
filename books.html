@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+
+    </script>
+</head>
+
+<body id="main">
+    <script>
+        var maind = document.getElementById('main')
+        maind.style.textAlign = 'center';
+        maind.style.display = 'flex'
+        maind.style.flexWrap='wrap'
+        maind.style.backgroundColor='grey'
+
+        var books = [];
+        axios.get("http://localhost:3000/books").then(function (response) {
+            console.log(response.data)
+            books = response.data;
+
+            createbookspage(books)
+        })
+
+        console.log(books)
+        function createbookspage(arr) {
+            arr.forEach(function (value) {
+                var box = document.createElement('div');
+                box.style.border = '5px inset skyblue';
+                box.style.borderRadius = '10px';
+                box.style.backgroundColor = 'lightpink';
+                box.style.width = '220px';
+                box.style.margin = '40px';
+                box.style.padding = '10px';
+
+                var imgs = document.createElement('img');
+                imgs.src = value.thumbnailUrl;
+                imgs.style.width = '150px';
+
+                var title = document.createElement('h1');
+                title.innerHTML = value.title;
+                title.style.color = 'white';
+
+                var author = document.createElement('h3');
+                author.innerHTML = value.authors;
+                author.style.color = 'white';
+
+
+                var price = document.createElement('h3');
+                price.innerHTML = "&#8377;" + value.price;
+                price.style.color = 'white';
+
+
+                box.appendChild(imgs);
+                box.appendChild(title);
+                box.appendChild(author);
+                box.appendChild(price);
+
+                maind.appendChild(box);
+            })
+        }
+
+    </script>
+</body>
+
+</html>
